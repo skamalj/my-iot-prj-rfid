@@ -10,10 +10,8 @@ def read_card():
  device.grab()
  cardid  = ''
  for event in device.read_loop():
-
-##Read only key pressed events i.e event type is key and is pressed down
   if event.type == evdev.ecodes.EV_KEY and event.value == KeyEvent.key_down:
-    digit = str(keys[event.code])[4:] #Strip 'KEY_' characters from key_code 
+    digit = str(keys[event.code])[4:]  
     if digit == 'ENTER':
        device.ungrab()
        return cardid
